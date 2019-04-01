@@ -1,0 +1,31 @@
+<table>
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Account</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>Zip</th>
+        <th>eMail</th>
+        <th>Phone</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach($sline as $sl)
+        <tr>
+            <td>{{date('m-d-Y',strtotime($sl->order_date))}}</td>
+            <td>{{substr($sl->name,0,60)}}</td>
+            <td>{{$sl->quantity}}</td>
+            <td>{{$sl->customer->name}}</td>
+            <td>{{$sl->customer->street}}</td>
+            <td>{{$sl->customer->city}}</td>
+            <td>{{$sl->customer->zip}}</td>
+            <td>{{$sl->customer->email}}</td>
+            <td>{{$sl->customer->phone}}</td>
+        </tr>
+    @endforeach
+    </tbody>
+</table>
